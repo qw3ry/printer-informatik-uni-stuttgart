@@ -1,0 +1,24 @@
+#!/bin/bash
+
+TARGET=beehts@marvin.informatik.uni-stuttgart.de
+FILE="$1"
+LOGFILE=/var/spool/cups-pdf/tobias/print-log
+
+if [ -z "$1" ]; then
+    echo "usage: ./print-uni filename"
+    echo "use export DEVICE_URI=cups-pdf:/printer-name to print on a specific printer. Will default to zarquon"
+    exit 1
+fi
+
+if [ -z "$DEVICE_URI" ]; then
+    PRINTER=zarquon
+else
+    PRINTER=$(basename $DEVICE_URI)
+fi
+
+FILENAME=$(basename $FILE)
+
+echo "PRINTING: $FILE @ $PRINTER at $TARGET" > $LOGFILE
+
+scp $FILE $TARGET:~/print-jobs &>> $LOGFILE
+ssh $TARGET "lp -d $PRINTER ~/print-jobs/$FILENAME" &>> $LOGFILE
