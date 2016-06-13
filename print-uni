@@ -2,7 +2,7 @@
 
 TARGET=beehts@marvin.informatik.uni-stuttgart.de
 FILE="$1"
-LOGFILE=/var/spool/cups-pdf/tobias/print-log
+LOGFILE=/var/spool/cups-pdf/$USER/print-log
 
 if [ -z "$1" ]; then
     echo "usage: ./print-uni filename"
