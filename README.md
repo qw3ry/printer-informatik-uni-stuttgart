@@ -12,5 +12,6 @@ für die Drucker an der Informatik-Fakultät der Universität Stuttgart
 
 ### Troubleshooting
 * Verwende SSH-Keys, statt dich mit Passwort zu identifizieren.
+* Erstelle das Verzeichnis ~/print-jobs auf deinem Pool-Account
 * Führe das Skript manuell aus
 * Der Log des Skripts steht in /var/spool/cups-pdf/$USERNAME/print-log
