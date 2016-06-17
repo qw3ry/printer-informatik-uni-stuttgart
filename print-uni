@@ -1,6 +1,8 @@
 #!/bin/bash
 
-TARGET=beehts@marvin.informatik.uni-stuttgart.de
+UNIUSER=$USER
+
+TARGET=$UNIUSER@marvin.informatik.uni-stuttgart.de
 FILE="$1"
 LOGFILE=/var/spool/cups-pdf/$USER/print-log
 
